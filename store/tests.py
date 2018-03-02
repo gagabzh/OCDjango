@@ -81,7 +81,7 @@ class ApiListTestCase(TestCase):
     def test_api_get_show_album(self):
         album_id = self.album.id
         response = self.client.get(reverse('store:apiShow',args=(album_id,)))
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 200)
 
     def test_api_post_show_album(self):
         album_id = self.album.id
