@@ -4,7 +4,6 @@
 
 from store.models import Artist, Album
 
-
 francis = Artist.objects.create(name="Francis Cabrel")
 patrick = Artist.objects.create(name="Patrick Bruel")
 benabar = Artist.objects.create(name="Benabar")

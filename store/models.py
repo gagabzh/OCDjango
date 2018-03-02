@@ -47,3 +47,4 @@ class Booking(models.Model):
 
     def __str__(self):
         return self.contact.name + "(" + self.album.title + ")"
+
