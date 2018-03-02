@@ -1,0 +1,24 @@
+ language: python # => 1
+    python: # => 2
+      - 3.1
+      - 3.2
+      - 3.3
+      - 3.4
+      - 3.5
+      - 3.6
+
+    services: # => 3
+      - postgresql
+
+    env: # => 4
+      -DJANGO=2.0.2 DB=postgresql
+
+    install: # => 5
+      - pip install -r requirements.txt
+
+    before_script: # => 6
+      - python manage.py migration
+      - python test/populate.py
+
+    script: # => 7
+      - python manage.py test
