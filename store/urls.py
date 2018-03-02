@@ -11,4 +11,6 @@ urlpatterns = [
     url(r'^$', views.listing, name='listing'),
     url(r'^(?P<album_id>[0-9]+)/$', views.detail, name='detail'),
     url(r'^search/$', views.search, name='search'),
+    url(r'^api/albums/$', views.list, name='apiList'),
+    url(r'^api/albums/(?P<album_id>[0-9]+)/$', views.show, name='apiShow'),
 ]

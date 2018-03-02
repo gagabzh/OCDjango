@@ -2,7 +2,12 @@
 # Create your views here.
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction, IntegrityError
+from django.http import HttpResponse
+from django.core import serializers
+from json import dumps
+
 
 from .models import Album, Contact, Booking
 from .form import ContactForm, ParagraphErrorList
@@ -19,6 +24,26 @@ def index(request):
         'albums': albums
     }
     return render(request, 'store/index.html', context)
+
+@csrf_exempt  #desactivation des crsf pour l'api (pas cool, mais en attendant de faire de lidentification)
+def list(request):
+    if request.method == 'GET':
+        data = serializers.serialize("json", Album.objects.all())
+        response = HttpResponse(data, content_type='application/json', status=200)
+    else:
+        data = dumps({'error': 'method not allow'})
+        response = HttpResponse(data, content_type='application/json', status=405)
+    return response
+
+@csrf_exempt  #desactivation des crsf pour l'api (pas cool, mais en attendant de faire de lidentification)
+def show(request, album_id):
+    if request.method == 'GET':
+        data = serializers.serialize("json", Album.objects.filter(pk=album_id))
+        response = HttpResponse(data, content_type='application/json', status=200)
+    else:
+        data = dumps({'error': 'method not allow'})
+        response = HttpResponse(data, content_type='application/json', status=405)
+    return response
 
 
 def listing(request):

@@ -1,11 +1,11 @@
 from django.db import models
 
-
 class Artist(models.Model):
     name = models.CharField('Nom', max_length=200, unique=True)
 
     class Meta:
         verbose_name = "Auteur"
+
     def __str__(self):
         return self.name
 
