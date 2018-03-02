@@ -90,7 +90,7 @@ DATABASES = {
         'USER': 'django',
         'PASSWORD': 'djangoAdmin',
         'HOST': '',
-        'PORT': '5432',
+        'PORT': '5433',
         'ATOMIC_REQUESTS': True,
     }
 }
