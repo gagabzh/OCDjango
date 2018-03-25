@@ -13,7 +13,7 @@ class IndexPageTestCase(TestCase):
     # test that index page returns a 200
     def test_index_page(self):
         response = self.client.get(reverse('index'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 202)
 
 
 # Detail Page
