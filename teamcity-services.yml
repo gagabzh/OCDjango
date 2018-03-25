@@ -1,0 +1,6 @@
+postgres:
+    image: postgres
+    ports:
+     - "8182:5432"
+    environment:
+     - "POSTGRES_PASSWORD=gagAdmin"
