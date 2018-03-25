@@ -87,10 +87,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'disquaire',
-        'USER': 'django',
-        'PASSWORD': 'djangoAdmin',
-        'HOST': '',
-        'PORT': '5433',
+        'USER': 'postgres',
+        'PASSWORD': 'gagAdmin',
+        'HOST': 'localhost',
+        'PORT': '8182',
         'ATOMIC_REQUESTS': True,
     }
 }
